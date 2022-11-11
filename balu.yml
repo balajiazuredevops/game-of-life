@@ -25,4 +25,4 @@ stages:
         steps:
           - script: echo 'install terrform'
           - script: echo 'executing terraform apply command'  
-          adding the content
+          
