@@ -1,16 +1,16 @@
-pipeline{
-    agent { label'master'}
-    stages{
-        stage('source'){
-            steps{
-                git 'https://github.com/puru7791/game-of-life.git'
-            }
-        }
-        stage('build'){
-            steps{
-                sh 'mvn clean package'
-            }
-        }
-    
+node('GOL') {
+    stage('SCM'){
+     git 'https://github.com/balajiazuredevops/game-of-life.git'
     }
-}
+    stage('build'){
+    build 'mvn clean package'
+    }
+    stage('postbuild'){
+       junit '**/TEST-*.xml'
+    }
+    stage('archiveartifacts'){
+        archive '**/*.war\''
+    }
+
+    }
+  
