@@ -4,7 +4,7 @@ pipeline {
         stage('scm') {
             steps {
 
-                git 'https://github.com/balajiazuredevops/game-of-life.git'
+                git branch:'master', url:'https://github.com/balajiazuredevops/game-of-life.git'
             }
         }
         stage('build') {
